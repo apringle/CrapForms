@@ -8,8 +8,15 @@ crapForms.saveForms = function ()
 
     for(var i = 0; i < inputs.length; i++)
     {
-        var currentInput =  inputs[i];
-        inputValues.push(currentInput.value);
+        var currentInput = inputs[i];
+        if (currentInput.hasOwnProperty('checked'))
+        {
+            inputValues.push(currentInput.checked);
+        }
+        else
+        {
+            inputValues.push(currentInput.value);
+        }
     }
 
     var crapFormsStorage;
@@ -37,8 +44,16 @@ crapForms.restoreForms = function()
             var inputs = document.querySelectorAll('input');
             for(var i = 0; i < inputs.length; i++)
             {
-                inputs[i].value = values[i];
+                var input = inputs[i];
+                if(input.hasOwnProperty('checked'))
+                {
+                    input.checked = values[i];
+                }
+                else
+                {
+                    input.value = values[i];
+                }
             }
         }
     }
-}
+};
