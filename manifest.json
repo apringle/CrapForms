@@ -9,7 +9,7 @@
   },
   "content_scripts": [{
     "matches": ["http://*/*", "https://*/*"],
-    "js": ["content.js"]
+    "js": ["CrapFormsContent.js"]
   }],
   "permissions": [
     "tabs", "http://*/*", "https://*/*"

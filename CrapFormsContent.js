@@ -76,10 +76,15 @@ crapForms.clearForms = function()
     localStorage['crapFormsStorage'] = JSON.stringify(crapFormsStorage);
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('save-button').addEventListener('click', crapForms.saveForms);      
-});
+crapForms.startAutoSave = function()
+{
+    window.onunload = crapForms.saveForms();
+};
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('restore-button').addEventListener('click', crapForms.restoreForms);      
+
+
+chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+    if (msg.text && (msg.text == "save")) {
+        sendResponse(document.all[0].outerHTML);
+    }
 });
