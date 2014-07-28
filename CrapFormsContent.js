@@ -88,8 +88,17 @@ crapForms.stopAutoSave = function()
 
 
 
-chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-    if (msg.text && (msg.text == "save")) {
-        sendResponse(document.all[0].outerHTML);
+chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse)
+{
+    if (msg.cmd)
+    {
+        if(msg.cmd === 'save')
+        {
+            crapForms.saveForms();
+        }
+        else if(msg.cmd === 'restore')
+        {
+            crapForms.restoreForms();
+        }
     }
 });
