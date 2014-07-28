@@ -15,7 +15,7 @@ crapForms.saveForms = function ()
             continue;
         }
 
-        if(currentInput.hasOwnProperty('checked'))
+        if(currentInput.type === 'checkbox' || currentInput.type === 'radio')
         {
             inputValues.push(currentInput.checked);
         }
@@ -50,20 +50,20 @@ crapForms.restoreForms = function()
             var inputs = document.querySelectorAll('input');
             for(var i = 0; i < inputs.length; i++)
             {
-                var input = inputs[i];
+                var currentInput = inputs[i];
 
-                if(input.type === 'password')
+                if(currentInput.type === 'password')
                 {
                     continue;
                 }
 
-                if(input.hasOwnProperty('checked'))
+                if(currentInput.type === 'checkbox' || currentInput.type === 'radio')
                 {
-                    input.checked = values[i];
+                    currentInput.checked = values[i];
                 }
                 else
                 {
-                    input.value = values[i];
+                    currentInput.value = values[i];
                 }
             }
         }
