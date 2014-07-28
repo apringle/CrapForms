@@ -9,7 +9,13 @@ crapForms.saveForms = function ()
     for(var i = 0; i < inputs.length; i++)
     {
         var currentInput = inputs[i];
-        if (currentInput.hasOwnProperty('checked'))
+
+        if(currentInput.type === 'password')
+        {
+            continue;
+        }
+
+        if(currentInput.hasOwnProperty('checked'))
         {
             inputValues.push(currentInput.checked);
         }
@@ -45,6 +51,12 @@ crapForms.restoreForms = function()
             for(var i = 0; i < inputs.length; i++)
             {
                 var input = inputs[i];
+
+                if(input.type === 'password')
+                {
+                    continue;
+                }
+
                 if(input.hasOwnProperty('checked'))
                 {
                     input.checked = values[i];
