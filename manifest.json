@@ -1,0 +1,13 @@
+{
+  "name": "Crap Forms",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "Allows saving and restoration of form data for when forms are crap.",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ]
+}
