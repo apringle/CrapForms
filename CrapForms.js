@@ -70,6 +70,12 @@ crapForms.restoreForms = function()
     }
 };
 
+crapForms.clearForms = function()
+{
+    var crapFormsStorage = {};
+    localStorage['crapFormsStorage'] = JSON.stringify(crapFormsStorage);
+};
+
 document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('save-button').addEventListener('click', crapForms.saveForms);      
 });
