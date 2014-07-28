@@ -10,7 +10,7 @@ crapForms.saveForms = function ()
     {
         var currentInput = inputs[i];
 
-        if(currentInput.type === 'password')
+        if(currentInput.type === 'password' || currentInput.type === 'submit')
         {
             continue;
         }
@@ -52,7 +52,7 @@ crapForms.restoreForms = function()
             {
                 var currentInput = inputs[i];
 
-                if(currentInput.type === 'password')
+                if(currentInput.type === 'password' || currentInput.type === 'submit')
                 {
                     continue;
                 }
