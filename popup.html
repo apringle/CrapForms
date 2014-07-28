@@ -5,16 +5,15 @@
   <style>
     body {
       min-width: 230px;
-      font-family: helvetica;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
     }
     ul {
-      margin: 0px;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
     }
     li {
       list-style-type: none;
-      border: 1px solid black;
-      padding: 5px;
+      padding: 0.5em ;
     }
     li:first-child {
       border-bottom: 0;
@@ -23,10 +22,19 @@
       background-color: #ddd;
       cursor: pointer;
     }
+    #heading
+    {
+        padding: 0.5em;
+        border-radius: 0.15em 0.15em 0 0;
+        font-weight: 600;
+        color: #ffffff;
+        background-color: #0C92E8;
+    }
   </style>
   <script type="text/javascript" src="CrapForms.js"></script>
   </head>
   <body>
+    <div id="heading">Crap Forms</div>
     <ul>
       <li id="save-button">Save form data</li>
       <li id="restore-button">Restore form data</li>
