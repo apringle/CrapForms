@@ -81,6 +81,11 @@ crapForms.startAutoSave = function()
     window.onunload = crapForms.saveForms();
 };
 
+crapForms.stopAutoSave = function()
+{
+    window.onunload = null;
+};
+
 
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
