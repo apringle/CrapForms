@@ -3,18 +3,12 @@ var crapForms = crapForms || {};
 
 crapForms.saveForms = function ()
 {
-    var inputs = document.querySelectorAll('input');
+    var inputs = crapForms.getSupportedInputs();
     var inputValues = [];
 
     for(var i = 0; i < inputs.length; i++)
     {
         var currentInput = inputs[i];
-
-        if(currentInput.type === 'password' || currentInput.type === 'submit')
-        {
-            continue;
-        }
-
         if(currentInput.type === 'checkbox' || currentInput.type === 'radio')
         {
             inputValues.push(currentInput.checked);
@@ -47,16 +41,10 @@ crapForms.restoreForms = function()
         var values = crapFormsStorage[location.pathname];
         if(values)
         {
-            var inputs = document.querySelectorAll('input');
+            var inputs = crapForms.getSupportedInputs();
             for(var i = 0; i < inputs.length; i++)
             {
                 var currentInput = inputs[i];
-
-                if(currentInput.type === 'password' || currentInput.type === 'submit')
-                {
-                    continue;
-                }
-
                 if(currentInput.type === 'checkbox' || currentInput.type === 'radio')
                 {
                     currentInput.checked = values[i];
@@ -68,6 +56,22 @@ crapForms.restoreForms = function()
             }
         }
     }
+};
+
+crapForms.getSupportedInputs = function()
+{
+    var inputs = document.querySelectorAll('input');
+    var supportedInputs = [];
+    for(var i = 0; i < inputs.length; i++)
+    {
+        var currentInput = inputs[i];
+
+        if (currentInput.type === 'password' || currentInput.type === 'submit') {
+            continue;
+        }
+        supportedInputs.push(currentInput);
+    }
+    return supportedInputs;
 };
 
 crapForms.clearForms = function()
